@@ -1,0 +1,8 @@
+name: soragni
+raw_path: "/data1/tanseyw/projects/deepadaptx/deepadaptx/data/drug_library/SoragniLab_Drugs_01072025_AS_corrected.xlsx"
+read_params:
+    header: 1
+    index_col: 0
+column_name: "Drug Name"
+use_cache: True
+cache_path: data/drug_library/${drug_library.name}.csv

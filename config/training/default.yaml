@@ -1,0 +1,21 @@
+name: default
+
+# Eval datasets
+test_size: 0.01
+super_test_n_drugs: 20
+
+# Training hyperparameters
+batch_size_train: 512
+batch_size_test: 2048
+buffer_size: 1024
+epochs: 100
+steps_per_epoch: null
+optimizer: adam
+optimizer_params:
+    learning_rate: 1e-3
+
+# Save/load
+use_cache: True
+cache_path: models/${data.name}_${drug_embeddings.name}_${model.name}.weights.h5
+save_path: models/${data.name}_${drug_embeddings.name}_${model.name}.weights.h5
+training_history: models/${data.name}_${drug_embeddings.name}_${model.name}_training_history.csv

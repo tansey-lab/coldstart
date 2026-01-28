@@ -1,0 +1,6 @@
+name: default_preprocessing
+min_val: -6
+max_val: 4
+n_drugs: ${model.n_drugs}
+use_cache: true
+cache_path: data/preprocessed/${data.name}_preprocessed

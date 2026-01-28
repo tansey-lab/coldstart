@@ -1,0 +1,40 @@
+name: kmedoids
+budget: 100
+
+# Unique Drug Pre-Selection
+drug_preselection:
+    drug_emb: "auc"
+    samples: "ex-vivo"
+    n_unique_selected: 50
+    batch_size: 2048
+    use_cache: true
+    cache_path: data/drug_embeddings/${data.name}_${cold_start.drug_preselection.drug_emb}_unique_embeddings.feather
+    method: "kmedoids"
+    method_params:
+        algorithm: "fasterpam"
+        metric: "euclidean_distance"
+
+# Combo Drug Selection
+combo_drug_selection:
+    drug_emb: "auc"
+    samples: "ex-vivo"
+    kind: "pair"
+    batch_size: 2048
+    use_cache: true
+    cache_path: data/drug_embeddings/${data.name}_${cold_start.drug_preselection.drug_emb}_combo_embeddings.feather
+    method: "kmedoids"
+    method_params:
+        algorithm: "fasterpam"
+        metric: "euclidean_distance"
+
+# Dose Selection
+dose_selection:
+    samples: "ex-vivo"
+    importance: True
+    diff_order: 2
+    quantile: 0.9
+    batch_size: 2048
+    use_cache: true
+    cache_path: data/drug_embeddings/${data.name}_${cold_start.drug_preselection.drug_emb}_dose_response.npz
+
+save_path: data/cold_start/${data.name}_${drug_embeddings.name}_${model.name}_${drug_library.name}_${cold_start.name}.csv

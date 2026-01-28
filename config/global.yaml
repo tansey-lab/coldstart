@@ -1,0 +1,4 @@
+n_drugs: 3
+n_dose_bins: 100
+drug_embedding_dim: 1024
+drug_vocab_size: 6000

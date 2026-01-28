@@ -1,0 +1,15 @@
+name: model1
+# Architecture
+n_drugs: 2
+n_dose_bins: 100
+drug_emb_dim: ${drug_embeddings.drug_embedding_dim}
+study_vocab_size: 50
+sample_vocab_size: 5000
+drug_vocab_size: 7000
+emb_dim: 128
+n_layers: 5
+units: 256
+rank: 30
+activation: relu
+semi_window_size: 5
+gamma: 0.2

@@ -1,0 +1,72 @@
+defaults:
+  - data: ex_vivo_2025-04-04
+  - data_cleaning: default
+  - preprocessing: default
+  - drug_embeddings: morgan
+  - model: model1
+  - training: default
+  - drug_library: soragni
+  - cold_start: kmedoids
+  - _self_
+
+pipeline_steps:
+  - load_dataset
+  - clean_data
+  - preprocessing
+  - drug_embeddings
+  - create_model
+  - extract_drug_info
+  - train_model
+  - cold_start_embeddings
+  - drug_auc
+  - importance_scores
+  - kmedoids_selection
+
+hydra:
+  output_subdir: null  
+  run:  
+    dir: .
+
+cold_start:
+    budget: 46
+
+
+
+
+# training:
+#     epochs: 10
+#     steps_per_epoch: 1000
+
+# model:
+#     name: model1_v2
+#     n_drugs: 2
+
+
+# data:
+#     name: "test_data_5"
+#     path: "/data1/tanseyw/projects/deepadaptx/deepadaptx/data/sample_raw_data_100k.feather"
+#     drug_df_path: "/data1/tanseyw/projects/deepadaptx/deepadaptx/data/sample_drugs_df.feather"
+
+# data_cleaning:
+#     use_cache: false
+
+# preprocessing:
+#     use_cache: false
+
+# drug_embeddings:
+#     use_cache: false
+
+# training:
+#     use_cache: false
+#     epochs: 2
+
+# cold_start:
+#     combo_drug_selection:
+#         use_cache: false
+#     dose_selection:
+#         use_cache: false
+
+# drug_library:
+#     use_cache: true
+#     cache_path: "data/drug_library/fake_drug_lib.csv"
+#     raw_path: "/data1/tanseyw/projects/deepadaptx/deepadaptx/data/drug_library/SoragniLab_Drugs_01072025_AS.xlsx"

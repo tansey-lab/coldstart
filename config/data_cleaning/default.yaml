@@ -1,0 +1,11 @@
+name: default
+# Isotonic regression
+isotonic_result_column: "isotonic_pred"
+use_cache_isotonic: true
+isotonic_save_path: data/isotonic/${data.name}_isotonic.feather
+
+# Filtering
+remove_study_ids: ["golub_2020"]       # empty list means no studies to remove
+max_isotonic_error: 0.2
+use_cache_clean: true
+clean_save_path: data/cleaned/${data.name}_cleaned.feather

@@ -1,0 +1,7 @@
+name: morgan
+drug_embedding_dim: 1024
+params:
+    radius: 2 
+    fpSize: ${drug_embeddings.drug_embedding_dim}
+use_cache: true
+cache_path: data/drug_embeddings/${data.name}_morgan_embeddings.npz
